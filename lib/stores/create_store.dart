@@ -1,10 +1,11 @@
-import 'package:mobx/mobx.dart';
-import 'package:mzd/models/category.dart';
 import 'package:get_it/get_it.dart';
+import 'package:mobx/mobx.dart';
 import 'package:mzd/models/ad.dart';
+import 'package:mzd/models/category.dart';
 import 'package:mzd/models/provincia.dart';
 import 'package:mzd/repositories/ad_repository.dart';
 import 'package:mzd/stores/user_manager_store.dart';
+
 part 'create_store.g.dart';
 
 class CreateStore = _CreateStore with _$CreateStore;
@@ -15,10 +16,10 @@ abstract class _CreateStore with Store {
     description = ad.description ?? '';
     images = ad.images.asObservable();
     category = ad.category;
+    provincia = ad.provincia;
     priceText = ad.price?.toStringAsFixed(2) ?? '';
     hidePhone = ad.hidePhone;
-
-    /*    */
+    //
   }
 
   final Ad ad;
@@ -69,21 +70,6 @@ abstract class _CreateStore with Store {
   }
 
   @observable
-  Provincia provincia;
-
-  @action
-  void setProvincia(Provincia value) => provincia = value;
-
-  @computed
-  bool get provinciValid => provincia != null;
-  String get provinciaError {
-    if (!showErrors || provinciValid)
-      return null;
-    else
-      return 'Campo obrigatório';
-  }
-
-  @observable
   Category category;
 
   @action
@@ -93,6 +79,21 @@ abstract class _CreateStore with Store {
   bool get categoryValid => category != null;
   String get categoryError {
     if (!showErrors || categoryValid)
+      return null;
+    else
+      return 'Campo obrigatório';
+  }
+
+  @observable
+  Provincia provincia;
+
+  @action
+  void setProvincia(Provincia value) => provincia = value;
+
+  @computed
+  bool get provinciaValid => provincia != null;
+  String get provinciaError {
+    if (!showErrors || provinciaValid)
       return null;
     else
       return 'Campo obrigatório';
@@ -135,7 +136,9 @@ abstract class _CreateStore with Store {
       titleValid &&
       descriptionValid &&
       categoryValid &&
-      provinciValid &&
+      provinciaValid &&
+
+      //addressValid &&
       priceValid;
 
   @computed
@@ -165,6 +168,7 @@ abstract class _CreateStore with Store {
     ad.price = price;
     ad.hidePhone = hidePhone;
     ad.images = images;
+    //ad.address = address;
     ad.user = GetIt.I<UserManagerStore>().user;
 
     loading = true;
@@ -174,7 +178,6 @@ abstract class _CreateStore with Store {
     } catch (e) {
       error = e;
     }
-
     loading = false;
   }
 }

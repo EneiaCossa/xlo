@@ -54,7 +54,7 @@ class AdTile extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '${ad.price.formattedMoney()}',
+                        ad.price.formattedMoney(),
                         style: TextStyle(
                           fontSize: 19,
                           fontWeight: FontWeight.w700,
@@ -62,8 +62,9 @@ class AdTile extends StatelessWidget {
                       ),
                       Text(
                         '${ad.created.formattedDate()} - '
-                        'Cidade '
-                        'Bairro',
+                        //'${ad.address.city.name} - '
+                        //'${ad.address.uf.initials}'
+                        ,
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w300,

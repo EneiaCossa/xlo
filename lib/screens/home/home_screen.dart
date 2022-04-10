@@ -3,12 +3,13 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mzd/components/custom_drawer/custom_drawer.dart';
 import 'package:mzd/components/empty_card.dart';
-import 'package:mzd/screens/filter/filter_screen.dart';
-import 'package:mzd/screens/home/components/ad_tile.dart';
-import 'package:mzd/screens/home/components/create_ad_button.dart';
-import 'package:mzd/screens/home/components/search_dialog.dart';
-import 'package:mzd/screens/home/components/top_bar.dart';
 import 'package:mzd/stores/home_store.dart';
+import 'package:mzd/screens/filter/filter_screen.dart';
+
+import 'components/ad_tile.dart';
+import 'components/create_ad_button.dart';
+import 'components/search_dialog.dart';
+import 'components/top_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final HomeStore homeStore = GetIt.I<HomeStore>();
+
   final ScrollController scrollController = ScrollController();
 
   openSearch(BuildContext context) async {
@@ -27,7 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
     if (search != null) homeStore.setSearch(search);
-    print(search);
   }
 
   @override
@@ -36,7 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         drawer: CustomDrawer(),
         appBar: AppBar(
-          centerTitle: true,
           title: Observer(builder: (_) {
             if (homeStore.search.isEmpty) return Container();
             return GestureDetector(
@@ -45,13 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 builder: (_, constraints) {
                   return Container(
                     width: constraints.biggest.width,
-                    child: Observer(builder: (_) {
-                      return Center(
-                        child: Text(
-                          homeStore.search,
-                        ),
-                      );
-                    }),
+                    child: Text(homeStore.search),
                   );
                 },
               ),
@@ -84,6 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Column(
           children: [
             TopBar(),
+            SizedBox(
+              height: 10,
+            ),
             Expanded(
               child: Stack(
                 children: [
@@ -121,8 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       );
                     if (homeStore.adList.isEmpty)
-                      return EmptyCard(
-                          'Nenhum anúncio encontrado, tente outra busca ou outro filtro.');
+                      return EmptyCard('Nenhum anúncio encontrado.');
                     return ListView.builder(
                       controller: scrollController,
                       itemCount: homeStore.itemCount,

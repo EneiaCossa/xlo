@@ -1,6 +1,5 @@
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mzd/screens/create/components/images_field.dart';
 
 import 'home_store.dart';
 
@@ -10,7 +9,6 @@ enum OrderBy { DATE, PRICE }
 
 const VENDOR_TYPE_PARTICULAR = 1 << 0;
 const VENDOR_TYPE_PROFESSIONAL = 1 << 1;
-//const VENDOR_TYPE_LOJA = 1 << 2;
 
 class FilterStore = _FilterStore with _$FilterStore;
 
@@ -21,11 +19,12 @@ abstract class _FilterStore with Store {
     this.maxPrice,
     this.vendorType = VENDOR_TYPE_PARTICULAR,
   });
+
   @observable
   OrderBy orderBy;
 
   @action
-  void setOrderBy(OrderBy value) => orderBy = value;
+  void serOrderBy(OrderBy value) => orderBy = value;
 
   @observable
   int minPrice;
@@ -58,7 +57,7 @@ abstract class _FilterStore with Store {
   bool get isTypeProfessional => (vendorType & VENDOR_TYPE_PROFESSIONAL) != 0;
 
   @computed
-  bool get ImagesField => priceError == null;
+  bool get isFormValid => priceError == null;
 
   void save() {
     GetIt.I<HomeStore>().setFilter(this);

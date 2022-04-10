@@ -33,7 +33,7 @@ class EditAccountScreen extends StatelessWidget {
                 children: [
                   Observer(builder: (_) {
                     return IgnorePointer(
-                      //ignoring: store.loading,
+                      ignoring: store.loading,
                       child: LayoutBuilder(
                         builder: (_, constraints) {
                           return ToggleSwitch(

@@ -110,7 +110,7 @@ class ImagesField extends StatelessWidget {
             );
           else
             return Container();
-        }),
+        })
       ],
     );
   }

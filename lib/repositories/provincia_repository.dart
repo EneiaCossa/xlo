@@ -1,8 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:mzd/models/provincia.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:mzd/repositories/parse_errors.dart';
 import 'package:mzd/repositories/table_keys.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 class ProvinciaRepository {
   Future<List<Provincia>> getList() async {

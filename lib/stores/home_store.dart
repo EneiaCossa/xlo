@@ -13,6 +13,7 @@ class HomeStore = _HomeStore with _$HomeStore;
 
 abstract class _HomeStore with Store {
   final ConnectivityStore connectivityStore = GetIt.I<ConnectivityStore>();
+
   _HomeStore() {
     autorun((_) async {
       connectivityStore.connected;

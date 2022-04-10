@@ -1,4 +1,4 @@
-import 'package:parse_server_sdk/parse_server_sdk.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:mzd/models/user.dart';
 import 'package:mzd/repositories/parse_errors.dart';
 import 'package:mzd/repositories/table_keys.dart';

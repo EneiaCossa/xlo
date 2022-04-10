@@ -43,13 +43,11 @@ class CategoryScreen extends StatelessWidget {
               return ListView.separated(
                 itemCount: categories.length,
                 separatorBuilder: (_, __) {
-                  return Divider(
-                    height: 0.1,
-                    color: Colors.grey,
-                  );
+                  return Divider(height: 0.1, color: Colors.grey);
                 },
                 itemBuilder: (_, index) {
                   final category = categories[index];
+
                   return InkWell(
                     onTap: () {
                       Navigator.of(context).pop(category);
@@ -63,10 +61,11 @@ class CategoryScreen extends StatelessWidget {
                       child: Text(
                         category.description,
                         style: TextStyle(
-                            color: Colors.grey[700],
-                            fontWeight: category.id == selected?.id
-                                ? FontWeight.bold
-                                : null),
+                          color: Colors.grey[700],
+                          fontWeight: category.id == selected?.id
+                              ? FontWeight.bold
+                              : null,
+                        ),
                       ),
                     ),
                   );

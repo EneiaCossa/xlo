@@ -68,8 +68,8 @@ class FavoriteTile extends StatelessWidget {
                           Expanded(
                             child: Text(
                               '${ad.created.formattedDate()} - '
-                              // '${ad.address.city.name} - '
-                              // '${ad.address.uf.initials}'
+                              //'${ad.address.city.name} - '
+                              //'${ad.address.uf.initials}'
                               ,
                               style: TextStyle(
                                 fontSize: 12,

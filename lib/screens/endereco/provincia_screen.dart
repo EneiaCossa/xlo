@@ -6,7 +6,8 @@ import 'package:mzd/models/provincia.dart';
 import 'package:mzd/stores/provincia_store.dart';
 
 class ProvinciaScreen extends StatelessWidget {
-  ProvinciaScreen({this.selected, this.showAll = true});
+  ProvinciaScreen({this.showAll = true, this.selected});
+
   final Provincia selected;
   final bool showAll;
 
@@ -17,7 +18,6 @@ class ProvinciaScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Provincias'),
-        centerTitle: true,
       ),
       body: Center(
         child: Card(
@@ -37,20 +37,17 @@ class ProvinciaScreen extends StatelessWidget {
               );
             } else {
               final provincias = showAll
-                  //provinciaStore.provinciaList
                   ? provinciaStore.allProvinciaList
                   : provinciaStore.provinciaList;
 
               return ListView.separated(
                 itemCount: provincias.length,
                 separatorBuilder: (_, __) {
-                  return Divider(
-                    height: 0.1,
-                    color: Colors.grey,
-                  );
+                  return Divider(height: 0.1, color: Colors.grey);
                 },
                 itemBuilder: (_, index) {
                   final provincia = provincias[index];
+
                   return InkWell(
                     onTap: () {
                       Navigator.of(context).pop(provincia);
@@ -64,10 +61,11 @@ class ProvinciaScreen extends StatelessWidget {
                       child: Text(
                         provincia.description,
                         style: TextStyle(
-                            color: Colors.grey[700],
-                            fontWeight: provincia.id == selected?.id
-                                ? FontWeight.bold
-                                : null),
+                          color: Colors.grey[700],
+                          fontWeight: provincia.id == selected?.id
+                              ? FontWeight.bold
+                              : null,
+                        ),
                       ),
                     ),
                   );

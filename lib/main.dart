@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mzd/repositories/provincia_repository.dart';
-import 'package:mzd/screens/endereco/provincia_screen.dart';
 import 'package:mzd/stores/provincia_store.dart';
-import 'package:mzd/temas/app_temas.dart';
-import 'package:parse_server_sdk/parse_server_sdk.dart';
-
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:mzd/screens/base/base_screen.dart';
 import 'package:mzd/stores/category_store.dart';
 import 'package:mzd/stores/connectivity_store.dart';
@@ -29,6 +25,7 @@ void setupLocators() {
   GetIt.I.registerSingleton(UserManagerStore());
   GetIt.I.registerSingleton(CategoryStore());
   GetIt.I.registerSingleton(ProvinciaStore());
+
   GetIt.I.registerSingleton(FavoriteStore());
 }
 
@@ -48,8 +45,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'XLO',
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.unisexTheme,
-      supportedLocales: const [Locale('pt', 'BR')],
+      theme: ThemeData(
+        primaryColor: Colors.purple,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        scaffoldBackgroundColor: Colors.purple,
+        appBarTheme: AppBarTheme(elevation: 0),
+        cursorColor: Colors.orange,
+      ),
+      supportedLocales: const [
+        Locale('pt', 'BR'),
+      ],
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

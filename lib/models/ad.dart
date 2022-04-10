@@ -24,6 +24,7 @@ class Ad {
     ); */
     views = object.get<int>(keyAdViews, defaultValue: 0);
     category = Category.fromParse(object.get<ParseObject>(keyAdCategory));
+    provincia = Provincia.fromParse(object.get<ParseObject>(keyAdProvincia));
     status = AdStatus.values[object.get<int>(keyAdStatus)];
     user = UserRepository().mapParseToUser(object.get<ParseUser>(keyAdOwner));
   }
@@ -31,11 +32,16 @@ class Ad {
   Ad();
 
   String id;
+
   List images = [];
+
   String title;
   String description;
+
   Category category;
   Provincia provincia;
+
+  //Address address;
 
   num price;
   bool hidePhone = false;

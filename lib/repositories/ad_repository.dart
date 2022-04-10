@@ -118,10 +118,10 @@ class AdRepository {
       adObject.set<num>(keyAdPrice, ad.price);
       adObject.set<int>(keyAdStatus, ad.status.index);
 
-      // adObject.set<String>(keyAdDistrict, ad.address.district);
-      //adObject.set<String>(keyAdCity, ad.address.city.name);
-      // adObject.set<String>(keyAdFederativeUnit, ad.address.uf.initials);
-      // adObject.set<String>(keyAdPostalCode, ad.address.cep);
+      /* adObject.set<String>(keyAdDistrict, ad.address.district);
+      adObject.set<String>(keyAdCity, ad.address.city.name);
+      adObject.set<String>(keyAdFederativeUnit, ad.address.uf.initials);
+      adObject.set<String>(keyAdPostalCode, ad.address.cep); */
 
       adObject.set<List<ParseFile>>(keyAdImages, parseImages);
 
@@ -179,6 +179,7 @@ class AdRepository {
     queryBuilder.orderByDescending(keyAdCreatedAt);
     queryBuilder.whereEqualTo(keyAdOwner, currentUser.toPointer());
     queryBuilder.includeObject([keyAdCategory, keyAdOwner]);
+    queryBuilder.includeObject([keyAdProvincia, keyAdOwner]);
 
     final response = await queryBuilder.query();
     if (response.success && response.results != null) {

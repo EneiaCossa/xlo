@@ -68,7 +68,7 @@ class AdScreen extends StatelessWidget {
                     Divider(color: Colors.grey[500]),
                     DescriptionPanel(ad),
                     Divider(color: Colors.grey[500]),
-                    // LocationPanel(ad),
+                    //LocationPanel(ad),
                     Divider(color: Colors.grey[500]),
                     UserPanel(ad),
                     SizedBox(
