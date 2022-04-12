@@ -53,21 +53,6 @@ mixin _$HomeStore on _HomeStore, Store {
     });
   }
 
-  final _$provinciaAtom = Atom(name: '_HomeStore.provincia');
-
-  @override
-  Provincia get provincia {
-    _$provinciaAtom.reportRead();
-    return super.provincia;
-  }
-
-  @override
-  set provincia(Provincia value) {
-    _$provinciaAtom.reportWrite(value, super.provincia, () {
-      super.provincia = value;
-    });
-  }
-
   final _$filterAtom = Atom(name: '_HomeStore.filter');
 
   @override
@@ -168,17 +153,6 @@ mixin _$HomeStore on _HomeStore, Store {
   }
 
   @override
-  void setProvincia(Provincia value) {
-    final _$actionInfo = _$_HomeStoreActionController.startAction(
-        name: '_HomeStore.setProvincia');
-    try {
-      return super.setProvincia(value);
-    } finally {
-      _$_HomeStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   void setFilter(FilterStore value) {
     final _$actionInfo =
         _$_HomeStoreActionController.startAction(name: '_HomeStore.setFilter');
@@ -238,7 +212,6 @@ mixin _$HomeStore on _HomeStore, Store {
     return '''
 search: ${search},
 category: ${category},
-provincia: ${provincia},
 filter: ${filter},
 error: ${error},
 loading: ${loading},

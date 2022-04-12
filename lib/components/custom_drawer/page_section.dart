@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mzd/components/custom_drawer/page_tile.dart';
-import 'package:mzd/screens/login/login_screen.dart';
-import 'package:mzd/stores/page_store.dart';
-import 'package:mzd/stores/user_manager_store.dart';
+import 'package:xlo_mobx/components/custom_drawer/page_tile.dart';
+import 'package:xlo_mobx/screens/login/login_screen.dart';
+import 'package:xlo_mobx/stores/page_store.dart';
+import 'package:xlo_mobx/stores/user_manager_store.dart';
 
 class PageSection extends StatelessWidget {
   final PageStore pageStore = GetIt.I<PageStore>();

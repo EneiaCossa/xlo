@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mzd/components/empty_card.dart';
-import 'package:mzd/stores/myads_store.dart';
+import 'package:xlo_mobx/components/empty_card.dart';
+import 'package:xlo_mobx/stores/myads_store.dart';
 
 import 'components/active_tile.dart';
 import 'components/pending_tile.dart';

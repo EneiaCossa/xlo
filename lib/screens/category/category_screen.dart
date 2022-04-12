@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mzd/components/error_box.dart';
-import 'package:mzd/models/category.dart';
-import 'package:mzd/stores/category_store.dart';
+import 'package:xlo_mobx/components/error_box.dart';
+import 'package:xlo_mobx/models/category.dart';
+import 'package:xlo_mobx/stores/category_store.dart';
 
 class CategoryScreen extends StatelessWidget {
   CategoryScreen({this.showAll = true, this.selected});

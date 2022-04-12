@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mzd/components/error_box.dart';
-import 'package:mzd/screens/signup/signup_screen.dart';
-import 'package:mzd/stores/login_store.dart';
-import 'package:mzd/stores/user_manager_store.dart';
+import 'package:xlo_mobx/components/error_box.dart';
+import 'package:xlo_mobx/screens/signup/signup_screen.dart';
+import 'package:xlo_mobx/stores/login_store.dart';
+import 'package:xlo_mobx/stores/user_manager_store.dart';
 
 class LoginScreen extends StatefulWidget {
   @override

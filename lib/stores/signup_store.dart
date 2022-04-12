@@ -1,15 +1,16 @@
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mzd/helpers/extensions.dart';
-import 'package:mzd/models/user.dart';
-import 'package:mzd/repositories/user_repository.dart';
-import 'package:mzd/stores/user_manager_store.dart';
+import 'package:xlo_mobx/helpers/extensions.dart';
+import 'package:xlo_mobx/models/user.dart';
+import 'package:xlo_mobx/repositories/user_repository.dart';
+import 'package:xlo_mobx/stores/user_manager_store.dart';
 
 part 'signup_store.g.dart';
 
 class SignupStore = _SignupStore with _$SignupStore;
 
 abstract class _SignupStore with Store {
+
   @observable
   String name;
 
@@ -19,9 +20,9 @@ abstract class _SignupStore with Store {
   @computed
   bool get nameValid => name != null && name.length > 6;
   String get nameError {
-    if (name == null || nameValid)
+    if(name == null || nameValid)
       return null;
-    else if (name.isEmpty)
+    else if(name.isEmpty)
       return 'Campo obrigatório';
     else
       return 'Nome muito curto';
@@ -36,9 +37,9 @@ abstract class _SignupStore with Store {
   @computed
   bool get emailValid => email != null && email.isEmailValid();
   String get emailError {
-    if (email == null || emailValid)
+    if(email == null || emailValid)
       return null;
-    else if (email.isEmpty)
+    else if(email.isEmpty)
       return 'Campo obrigatório';
     else
       return 'E-mail inválido';
@@ -94,8 +95,8 @@ abstract class _SignupStore with Store {
   }
 
   @computed
-  bool get isFormValid =>
-      nameValid && emailValid && phoneValid && pass1Valid && pass2Valid;
+  bool get isFormValid => nameValid && emailValid
+      && phoneValid && pass1Valid && pass2Valid;
 
   @computed
   Function get signUpPressed => (isFormValid && !loading) ? _signUp : null;
@@ -110,7 +111,12 @@ abstract class _SignupStore with Store {
   Future<void> _signUp() async {
     loading = true;
 
-    final user = User(name: name, email: email, phone: phone, password: pass1);
+    final user = User(
+      name: name,
+      email: email,
+      phone: phone,
+      password: pass1
+    );
 
     try {
       final resultUser = await UserRepository().signUp(user);
@@ -121,4 +127,5 @@ abstract class _SignupStore with Store {
 
     loading = false;
   }
+
 }

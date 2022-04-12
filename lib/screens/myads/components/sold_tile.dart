@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mzd/helpers/extensions.dart';
-import 'package:mzd/models/ad.dart';
-import 'package:mzd/stores/myads_store.dart';
+import 'package:xlo_mobx/helpers/extensions.dart';
+import 'package:xlo_mobx/models/ad.dart';
+import 'package:xlo_mobx/stores/myads_store.dart';
 
 class SoldTile extends StatelessWidget {
   SoldTile(this.ad, this.store);

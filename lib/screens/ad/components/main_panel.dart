@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mzd/helpers/extensions.dart';
-import 'package:mzd/models/ad.dart';
+import 'package:xlo_mobx/helpers/extensions.dart';
+import 'package:xlo_mobx/models/ad.dart';
 
 class MainPanel extends StatelessWidget {
   MainPanel(this.ad);

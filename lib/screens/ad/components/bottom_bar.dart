@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:mzd/models/ad.dart';
+import 'package:xlo_mobx/models/ad.dart';
 
 class BottomBar extends StatelessWidget {
   BottomBar(this.ad);

@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mzd/helpers/extensions.dart';
-import 'package:mzd/models/ad.dart';
-import 'package:mzd/screens/ad/ad_screen.dart';
-import 'package:mzd/screens/create/create_screen.dart';
-import 'package:mzd/stores/myads_store.dart';
+import 'package:xlo_mobx/helpers/extensions.dart';
+import 'package:xlo_mobx/models/ad.dart';
+import 'package:xlo_mobx/screens/ad/ad_screen.dart';
+import 'package:xlo_mobx/screens/create/create_screen.dart';
+import 'package:xlo_mobx/stores/myads_store.dart';
 
 class ActiveTile extends StatelessWidget {
   ActiveTile(this.ad, this.store);

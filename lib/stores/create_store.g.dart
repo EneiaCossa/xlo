@@ -37,13 +37,12 @@ mixin _$CreateStore on _CreateStore, Store {
       (_$categoryValidComputed ??= Computed<bool>(() => super.categoryValid,
               name: '_CreateStore.categoryValid'))
           .value;
-  Computed<bool> _$provinciaValidComputed;
+  Computed<Address> _$addressComputed;
 
   @override
-  bool get provinciaValid =>
-      (_$provinciaValidComputed ??= Computed<bool>(() => super.provinciaValid,
-              name: '_CreateStore.provinciaValid'))
-          .value;
+  Address get address => (_$addressComputed ??=
+          Computed<Address>(() => super.address, name: '_CreateStore.address'))
+      .value;
   Computed<num> _$priceComputed;
 
   @override
@@ -106,21 +105,6 @@ mixin _$CreateStore on _CreateStore, Store {
   set category(Category value) {
     _$categoryAtom.reportWrite(value, super.category, () {
       super.category = value;
-    });
-  }
-
-  final _$provinciaAtom = Atom(name: '_CreateStore.provincia');
-
-  @override
-  Provincia get provincia {
-    _$provinciaAtom.reportRead();
-    return super.provincia;
-  }
-
-  @override
-  set provincia(Provincia value) {
-    _$provinciaAtom.reportWrite(value, super.provincia, () {
-      super.provincia = value;
     });
   }
 
@@ -257,17 +241,6 @@ mixin _$CreateStore on _CreateStore, Store {
   }
 
   @override
-  void setProvincia(Provincia value) {
-    final _$actionInfo = _$_CreateStoreActionController.startAction(
-        name: '_CreateStore.setProvincia');
-    try {
-      return super.setProvincia(value);
-    } finally {
-      _$_CreateStoreActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   void setPrice(String value) {
     final _$actionInfo = _$_CreateStoreActionController.startAction(
         name: '_CreateStore.setPrice');
@@ -306,7 +279,6 @@ mixin _$CreateStore on _CreateStore, Store {
 title: ${title},
 description: ${description},
 category: ${category},
-provincia: ${provincia},
 priceText: ${priceText},
 hidePhone: ${hidePhone},
 showErrors: ${showErrors},
@@ -317,7 +289,7 @@ imagesValid: ${imagesValid},
 titleValid: ${titleValid},
 descriptionValid: ${descriptionValid},
 categoryValid: ${categoryValid},
-provinciaValid: ${provinciaValid},
+address: ${address},
 price: ${price},
 formValid: ${formValid},
 sendPressed: ${sendPressed}

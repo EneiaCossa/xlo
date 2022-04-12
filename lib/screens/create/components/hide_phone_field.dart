@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mzd/stores/create_store.dart';
+import 'package:xlo_mobx/stores/create_store.dart';
 
 class HidePhoneField extends StatelessWidget {
   HidePhoneField(this.createStore);

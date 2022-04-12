@@ -1,9 +1,12 @@
-import 'package:mzd/models/provincia.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:mzd/models/category.dart';
-import 'package:mzd/models/user.dart';
-import 'package:mzd/repositories/table_keys.dart';
-import 'package:mzd/repositories/user_repository.dart';
+import 'package:xlo_mobx/models/address.dart';
+import 'package:xlo_mobx/models/category.dart';
+import 'package:xlo_mobx/models/uf.dart';
+import 'package:xlo_mobx/models/user.dart';
+import 'package:xlo_mobx/repositories/table_keys.dart';
+import 'package:xlo_mobx/repositories/user_repository.dart';
+
+import 'city.dart';
 
 enum AdStatus { PENDING, ACTIVE, SOLD, DELETED }
 
@@ -16,15 +19,14 @@ class Ad {
     hidePhone = object.get<bool>(keyAdHidePhone);
     price = object.get<num>(keyAdPrice);
     created = object.createdAt;
-    /* address = Address(
+    address = Address(
       district: object.get<String>(keyAdDistrict),
       city: City(name: object.get<String>(keyAdCity)),
       cep: object.get<String>(keyAdPostalCode),
       uf: UF(initials: object.get<String>(keyAdFederativeUnit)),
-    ); */
+    );
     views = object.get<int>(keyAdViews, defaultValue: 0);
     category = Category.fromParse(object.get<ParseObject>(keyAdCategory));
-    provincia = Provincia.fromParse(object.get<ParseObject>(keyAdProvincia));
     status = AdStatus.values[object.get<int>(keyAdStatus)];
     user = UserRepository().mapParseToUser(object.get<ParseUser>(keyAdOwner));
   }
@@ -39,9 +41,8 @@ class Ad {
   String description;
 
   Category category;
-  Provincia provincia;
 
-  //Address address;
+  Address address;
 
   num price;
   bool hidePhone = false;

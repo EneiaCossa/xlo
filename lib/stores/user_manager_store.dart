@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
-import 'package:mzd/models/user.dart';
-import 'package:mzd/repositories/user_repository.dart';
+import 'package:xlo_mobx/models/user.dart';
+import 'package:xlo_mobx/repositories/user_repository.dart';
 
 part 'user_manager_store.g.dart';
 

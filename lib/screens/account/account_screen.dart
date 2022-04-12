@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mzd/components/custom_drawer/custom_drawer.dart';
-import 'package:mzd/screens/edit_account/edit_account_screen.dart';
-import 'package:mzd/screens/favorites/favorites_screen.dart';
-import 'package:mzd/screens/myads/myads_screen.dart';
-import 'package:mzd/stores/user_manager_store.dart';
+import 'package:xlo_mobx/components/custom_drawer/custom_drawer.dart';
+import 'package:xlo_mobx/screens/edit_account/edit_account_screen.dart';
+import 'package:xlo_mobx/screens/favorites/favorites_screen.dart';
+import 'package:xlo_mobx/screens/myads/myads_screen.dart';
+import 'package:xlo_mobx/stores/user_manager_store.dart';
 
 class AccountScreen extends StatelessWidget {
   @override

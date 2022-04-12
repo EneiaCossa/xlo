@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mzd/helpers/extensions.dart';
-import 'package:mzd/models/ad.dart';
-import 'package:mzd/screens/ad/ad_screen.dart';
-import 'package:mzd/stores/favorite_store.dart';
+import 'package:xlo_mobx/helpers/extensions.dart';
+import 'package:xlo_mobx/models/ad.dart';
+import 'package:xlo_mobx/screens/ad/ad_screen.dart';
+import 'package:xlo_mobx/stores/favorite_store.dart';
 
 class FavoriteTile extends StatelessWidget {
   FavoriteTile(this.ad);
@@ -68,9 +68,8 @@ class FavoriteTile extends StatelessWidget {
                           Expanded(
                             child: Text(
                               '${ad.created.formattedDate()} - '
-                              //'${ad.address.city.name} - '
-                              //'${ad.address.uf.initials}'
-                              ,
+                              '${ad.address.city.name} - '
+                              '${ad.address.uf.initials}',
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w300,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
-import 'package:mzd/models/ad.dart';
+import 'package:xlo_mobx/models/ad.dart';
 
 class DescriptionPanel extends StatelessWidget {
   DescriptionPanel(this.ad);

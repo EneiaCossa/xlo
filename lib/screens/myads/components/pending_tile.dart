@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mzd/helpers/extensions.dart';
-import 'package:mzd/models/ad.dart';
-import 'package:mzd/screens/ad/ad_screen.dart';
+import 'package:xlo_mobx/helpers/extensions.dart';
+import 'package:xlo_mobx/models/ad.dart';
+import 'package:xlo_mobx/screens/ad/ad_screen.dart';
 
 class PendingTile extends StatelessWidget {
   PendingTile(this.ad);

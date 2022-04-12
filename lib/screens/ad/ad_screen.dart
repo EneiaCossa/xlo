@@ -3,12 +3,13 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mzd/models/ad.dart';
-import 'package:mzd/stores/favorite_store.dart';
-import 'package:mzd/stores/user_manager_store.dart';
+import 'package:xlo_mobx/models/ad.dart';
+import 'package:xlo_mobx/stores/favorite_store.dart';
+import 'package:xlo_mobx/stores/user_manager_store.dart';
 
 import 'components/bottom_bar.dart';
 import 'components/description_panel.dart';
+import 'components/location_panel.dart';
 import 'components/main_panel.dart';
 import 'components/user_panel.dart';
 
@@ -68,7 +69,7 @@ class AdScreen extends StatelessWidget {
                     Divider(color: Colors.grey[500]),
                     DescriptionPanel(ad),
                     Divider(color: Colors.grey[500]),
-                    //LocationPanel(ad),
+                    LocationPanel(ad),
                     Divider(color: Colors.grey[500]),
                     UserPanel(ad),
                     SizedBox(

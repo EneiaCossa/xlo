@@ -1,11 +1,10 @@
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mzd/models/ad.dart';
-import 'package:mzd/models/category.dart';
-import 'package:mzd/models/provincia.dart';
-import 'package:mzd/repositories/ad_repository.dart';
-import 'package:mzd/stores/connectivity_store.dart';
-import 'package:mzd/stores/filter_store.dart';
+import 'package:xlo_mobx/models/ad.dart';
+import 'package:xlo_mobx/models/category.dart';
+import 'package:xlo_mobx/repositories/ad_repository.dart';
+import 'package:xlo_mobx/stores/connectivity_store.dart';
+import 'package:xlo_mobx/stores/filter_store.dart';
 
 part 'home_store.g.dart';
 
@@ -23,7 +22,6 @@ abstract class _HomeStore with Store {
           filter: filter,
           search: search,
           category: category,
-          provincia: provincia,
           page: page,
         );
         addNewAds(newAds);
@@ -52,15 +50,6 @@ abstract class _HomeStore with Store {
   @action
   void setCategory(Category value) {
     category = value;
-    resetPage();
-  }
-
-  @observable
-  Provincia provincia;
-
-  @action
-  void setProvincia(Provincia value) {
-    provincia = value;
     resetPage();
   }
 

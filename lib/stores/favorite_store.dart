@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mzd/models/ad.dart';
-import 'package:mzd/repositories/favorite_repository.dart';
-import 'package:mzd/stores/user_manager_store.dart';
+import 'package:xlo_mobx/models/ad.dart';
+import 'package:xlo_mobx/repositories/favorite_repository.dart';
+import 'package:xlo_mobx/stores/user_manager_store.dart';
 
 part 'favorite_store.g.dart';
 

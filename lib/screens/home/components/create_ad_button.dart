@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mzd/stores/page_store.dart';
+import 'package:xlo_mobx/stores/page_store.dart';
 
 class CreateAdButton extends StatefulWidget {
   CreateAdButton(this.scrollController);

@@ -1,7 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mzd/models/category.dart';
-import 'package:mzd/repositories/category_repository.dart';
+import 'package:xlo_mobx/models/category.dart';
+import 'package:xlo_mobx/repositories/category_repository.dart';
 
 import 'connectivity_store.dart';
 
@@ -23,7 +23,7 @@ abstract class _CategoryStore with Store {
 
   @computed
   List<Category> get allCategoryList => List.from(categoryList)
-    ..insert(0, Category(id: '*', description: 'Todas categorias'));
+    ..insert(0, Category(id: '*', description: 'Todas'));
 
   @action
   void setCategories(List<Category> categories) {

@@ -1,7 +1,7 @@
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:mzd/models/user.dart';
-import 'package:mzd/repositories/parse_errors.dart';
-import 'package:mzd/repositories/table_keys.dart';
+import 'package:xlo_mobx/models/user.dart';
+import 'package:xlo_mobx/repositories/parse_errors.dart';
+import 'package:xlo_mobx/repositories/table_keys.dart';
 
 class UserRepository {
   Future<User> signUp(User user) async {

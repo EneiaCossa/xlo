@@ -1,28 +1,25 @@
 import 'dart:io';
 
-import 'package:mzd/models/provincia.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:path/path.dart' as path;
-import 'package:mzd/models/ad.dart';
-import 'package:mzd/models/category.dart';
-import 'package:mzd/models/user.dart';
-import 'package:mzd/repositories/parse_errors.dart';
-import 'package:mzd/repositories/table_keys.dart';
-import 'package:mzd/stores/filter_store.dart';
+import 'package:xlo_mobx/models/ad.dart';
+import 'package:xlo_mobx/models/category.dart';
+import 'package:xlo_mobx/models/user.dart';
+import 'package:xlo_mobx/repositories/parse_errors.dart';
+import 'package:xlo_mobx/repositories/table_keys.dart';
+import 'package:xlo_mobx/stores/filter_store.dart';
 
 class AdRepository {
   Future<List<Ad>> getHomeAdList({
     FilterStore filter,
     String search,
     Category category,
-    Provincia provincia,
     int page,
   }) async {
     try {
       final queryBuilder = QueryBuilder<ParseObject>(ParseObject(keyAdTable));
 
       queryBuilder.includeObject([keyAdOwner, keyAdCategory]);
-      queryBuilder.includeObject([keyAdOwner, keyAdProvincia]);
 
       queryBuilder.setAmountToSkip(page * 10);
       queryBuilder.setLimit(10);
@@ -37,14 +34,6 @@ class AdRepository {
         queryBuilder.whereEqualTo(
           keyAdCategory,
           (ParseObject(keyCategoryTable)..set(keyCategoryId, category.id))
-              .toPointer(),
-        );
-      }
-
-      if (provincia != null && provincia.id != '*') {
-        queryBuilder.whereEqualTo(
-          keyAdProvincia,
-          (ParseObject(keyProvinciaTable)..set(keyProvinciaId, provincia.id))
               .toPointer(),
         );
       }
@@ -118,10 +107,10 @@ class AdRepository {
       adObject.set<num>(keyAdPrice, ad.price);
       adObject.set<int>(keyAdStatus, ad.status.index);
 
-      /* adObject.set<String>(keyAdDistrict, ad.address.district);
+      adObject.set<String>(keyAdDistrict, ad.address.district);
       adObject.set<String>(keyAdCity, ad.address.city.name);
       adObject.set<String>(keyAdFederativeUnit, ad.address.uf.initials);
-      adObject.set<String>(keyAdPostalCode, ad.address.cep); */
+      adObject.set<String>(keyAdPostalCode, ad.address.cep);
 
       adObject.set<List<ParseFile>>(keyAdImages, parseImages);
 
@@ -129,9 +118,6 @@ class AdRepository {
 
       adObject.set<ParseObject>(keyAdCategory,
           ParseObject(keyCategoryTable)..set(keyCategoryId, ad.category.id));
-
-      adObject.set<ParseObject>(keyAdProvincia,
-          ParseObject(keyProvinciaTable)..set(keyProvinciaId, ad.provincia.id));
 
       final response = await adObject.save();
 
@@ -179,7 +165,6 @@ class AdRepository {
     queryBuilder.orderByDescending(keyAdCreatedAt);
     queryBuilder.whereEqualTo(keyAdOwner, currentUser.toPointer());
     queryBuilder.includeObject([keyAdCategory, keyAdOwner]);
-    queryBuilder.includeObject([keyAdProvincia, keyAdOwner]);
 
     final response = await queryBuilder.query();
     if (response.success && response.results != null) {

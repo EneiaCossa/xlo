@@ -1,10 +1,11 @@
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mzd/models/ad.dart';
-import 'package:mzd/models/category.dart';
-import 'package:mzd/models/provincia.dart';
-import 'package:mzd/repositories/ad_repository.dart';
-import 'package:mzd/stores/user_manager_store.dart';
+import 'package:xlo_mobx/models/ad.dart';
+import 'package:xlo_mobx/models/address.dart';
+import 'package:xlo_mobx/models/category.dart';
+import 'package:xlo_mobx/repositories/ad_repository.dart';
+import 'package:xlo_mobx/stores/cep_store.dart';
+import 'package:xlo_mobx/stores/user_manager_store.dart';
 
 part 'create_store.g.dart';
 
@@ -16,10 +17,13 @@ abstract class _CreateStore with Store {
     description = ad.description ?? '';
     images = ad.images.asObservable();
     category = ad.category;
-    provincia = ad.provincia;
     priceText = ad.price?.toStringAsFixed(2) ?? '';
     hidePhone = ad.hidePhone;
-    //
+
+    if (ad.address != null)
+      cepStore = CepStore(ad.address.cep);
+    else
+      cepStore = CepStore(null);
   }
 
   final Ad ad;
@@ -84,16 +88,13 @@ abstract class _CreateStore with Store {
       return 'Campo obrigatório';
   }
 
-  @observable
-  Provincia provincia;
-
-  @action
-  void setProvincia(Provincia value) => provincia = value;
+  CepStore cepStore;
 
   @computed
-  bool get provinciaValid => provincia != null;
-  String get provinciaError {
-    if (!showErrors || provinciaValid)
+  Address get address => cepStore.address;
+  bool get addressValid => address != null;
+  String get addressError {
+    if (!showErrors || addressValid)
       return null;
     else
       return 'Campo obrigatório';
@@ -136,9 +137,7 @@ abstract class _CreateStore with Store {
       titleValid &&
       descriptionValid &&
       categoryValid &&
-      provinciaValid &&
-
-      //addressValid &&
+      addressValid &&
       priceValid;
 
   @computed
@@ -164,11 +163,10 @@ abstract class _CreateStore with Store {
     ad.title = title;
     ad.description = description;
     ad.category = category;
-    ad.provincia = provincia;
     ad.price = price;
     ad.hidePhone = hidePhone;
     ad.images = images;
-    //ad.address = address;
+    ad.address = address;
     ad.user = GetIt.I<UserManagerStore>().user;
 
     loading = true;

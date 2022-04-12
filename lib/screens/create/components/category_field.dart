@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:mzd/screens/category/category_screen.dart';
-import 'package:mzd/stores/create_store.dart';
+import 'package:xlo_mobx/screens/category/category_screen.dart';
+import 'package:xlo_mobx/stores/create_store.dart';
 
 class CategoryField extends StatelessWidget {
   CategoryField(this.createStore);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mzd/components/custom_drawer/custom_drawer.dart';
-import 'package:mzd/components/empty_card.dart';
-import 'package:mzd/stores/favorite_store.dart';
+import 'package:xlo_mobx/components/custom_drawer/custom_drawer.dart';
+import 'package:xlo_mobx/components/empty_card.dart';
+import 'package:xlo_mobx/stores/favorite_store.dart';
 
 import 'components/favorite_tile.dart';
 

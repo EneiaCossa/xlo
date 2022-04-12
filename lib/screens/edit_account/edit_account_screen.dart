@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
 import 'package:toggle_switch/toggle_switch.dart';
-import 'package:mzd/stores/edit_account_store.dart';
-import 'package:mzd/stores/page_store.dart';
+import 'package:xlo_mobx/stores/edit_account_store.dart';
+import 'package:xlo_mobx/stores/page_store.dart';
 
 class EditAccountScreen extends StatelessWidget {
   final EditAccountStore store = EditAccountStore();

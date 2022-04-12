@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
-import 'package:mzd/models/user.dart';
-import 'package:mzd/repositories/user_repository.dart';
-import 'package:mzd/stores/user_manager_store.dart';
+import 'package:xlo_mobx/models/user.dart';
+import 'package:xlo_mobx/repositories/user_repository.dart';
+import 'package:xlo_mobx/stores/user_manager_store.dart';
 
 part 'edit_account_store.g.dart';
 
